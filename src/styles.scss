@@ -1,4 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+//! OBS aqui nessa classe global eu utilizo tudo que sera usado pela aplicacao TODA !!!
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// estilizacao do header
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+// estilizacao do conteudo da pagina (para ficar centralizada ao meio com as bordas laterias, o padrao de qualquer pagina
+.content-container {
+    width: 100%;
+    max-width: 748px;
+}
+
+
+/*
+flex:
+    Ao aplicar display: flex; a um elemento, ele se torna um flex container, e todos os seus filhos diretos se tornam itens flexíveis. 
+    Isso traz várias vantagens para o posicionamento e alinhamento dos itens dentro do container, como:
+    Alinhamento automático: Você pode alinhar os itens ao longo dos eixos vertical (chamado de eixo secundário) e horizontal (eixo principal) facilmente.
+    Distribuição de espaço: Ele distribui o espaço disponível entre os itens, permitindo, por exemplo, 
+    que eles ocupem a mesma quantidade de espaço ou que tenham tamanhos diferentes baseados em proporções.
+    Direção do layout: Você pode mudar a direção do layout para ser em linha (horizontal) ou coluna (vertical).
+*/
+
+//------
+
+/*
+width: 100%;
+    pega 100% da largura da tela
+*/
+
+//-------
+
+/*
+justify-content: center;
+    Centraliza ao meio da tela
+*/
+
+//-------
+
+/*
+max-width: 748px;
+    A largura maxima do componente sera de 748px, ou seja ele so vai poder expandir ate a nossa definicao que e 748px da tela
+    Monitores muito grande vai sentir essa diferenca
+*/
