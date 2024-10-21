@@ -1,17 +1,6 @@
 <!-- track -> ele verifica se precisa renderizar novamente -->
 @for (item of products; track item.id) {
-<mat-card appearance="outlined">
-    <mat-card-header>
-        <!-- com css -->
-        <!-- <mat-card-title class="white-text">{{ item.title }}</mat-card-title> -->
-
-        <!-- com alteracao no css porem direto no component material (olhe la no scss) -->
-        <mat-card-title>{{ item.title }}</mat-card-title>
-
-    </mat-card-header>
-    <mat-card-actions>
-        <button mat-button>Editar</button>
-        <button mat-button>Deletar</button>
-    </mat-card-actions>
-</mat-card>
+    <!-- Repare que por ser required o input ele ira dar um erro se eu nao passar isso `[productItemComponent]` -->
+     <!-- e assim que eu componetizo um item e passo pra classe principal -->
+    <app-card [productItemComponent]="item"/>
 }

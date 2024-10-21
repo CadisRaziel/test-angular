@@ -1,16 +1,15 @@
 import { Component, inject, Inject } from '@angular/core';
 import { ProductsService } from '../../shared/services/products.service';
 import { ProductsModel } from '../../shared/model/products.model';
-import { MatCardModule } from '@angular/material/card'; //O import ou eu coloco na mao ou eu vou la no site do material angular procurar
-import { MatButtonModule } from '@angular/material/button'; //O import ou eu coloco na mao ou eu vou la no site do material angular procurar
+import { CardComponent } from './components/card/card.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
   imports: [
-    //Aqui irei importa os components que esse component list ira usar
-    MatCardModule,
-    MatButtonModule
+    //Importando meu component de card feito so para o card
+    //Veja como podemos componetizar assim como o flutter
+    CardComponent
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
