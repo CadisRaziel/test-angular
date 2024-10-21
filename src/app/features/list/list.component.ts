@@ -2,6 +2,8 @@ import { Component, inject, Inject } from '@angular/core';
 import { ProductsService } from '../../shared/services/products.service';
 import { ProductsModel } from '../../shared/model/products.model';
 import { CardComponent } from './components/card/card.component';
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-list',
@@ -9,7 +11,9 @@ import { CardComponent } from './components/card/card.component';
   imports: [
     //Importando meu component de card feito so para o card
     //Veja como podemos componetizar assim como o flutter
-    CardComponent
+    CardComponent,
+    RouterLink,
+    MatButtonModule
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'

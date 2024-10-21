@@ -1,6 +1,10 @@
+<div class="action-container">
+    <a mat-raised-button color="primary" [routerLink]="['/create-product']">Criar produto</a>
+</div>
+
 <!-- track -> ele verifica se precisa renderizar novamente -->
 @for (item of products; track item.id) {
-    <!-- Repare que por ser required o input ele ira dar um erro se eu nao passar isso `[productItemComponent]` -->
-     <!-- e assim que eu componetizo um item e passo pra classe principal -->
-    <app-card [productItemComponent]="item"/>
+<!-- Repare que por ser required o input ele ira dar um erro se eu nao passar isso `[productItemComponent]` -->
+<!-- e assim que eu componetizo um item e passo pra classe principal -->
+<app-card [productItemComponent]="item" />
 }
