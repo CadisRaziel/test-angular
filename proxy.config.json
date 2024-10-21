@@ -1,0 +1,13 @@
+{
+    "/api" : {
+        //porque /api ? sempre que tive /api la no service `this.httpClient.get<any>('/api/products')` ele vai ta referenciando o http://localhost:3000/
+        //eu posso por o nome que eu quiser no /api
+        "target": "http://localhost:3000/",
+        "pathRewrite": {       
+            //pathRewrite ele serve para remover(deixar em branco) o /api da requisao e por a url correta que e http://localhost:3000/
+            //E uma exressao regular, quando a string comecar om /api ele deixa vazio
+            //o ^ que identifica o inicio
+            "^/api": ""
+        } 
+    }
+}

@@ -91,6 +91,10 @@
               "buildTarget": "ProjetoTeste:build:development"
             }
           },
+          "options": {
+            //Configuracao do meu proxy
+            "proxyConfig": "proxy.config.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
