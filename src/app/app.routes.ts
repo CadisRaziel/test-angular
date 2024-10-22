@@ -4,7 +4,7 @@ import { CreateComponent } from './features/create/create.component';
 
 export const routes: Routes = [
     {
-        path: '',
+        path: '', //A rota vazia significa o '/'
         component: ListComponent
     },
     {
