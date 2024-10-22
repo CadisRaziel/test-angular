@@ -32,11 +32,14 @@ export class CreateComponent {
     this.productsService.post({
      title: this.form.controls.title.value //-> Recuperar o value
     }).subscribe(() => {
-      this.snackBar.open('Produto adicionado com sucesso', 'Ok', {
-        duration: 3000,
-        horizontalPosition: 'right',
-        verticalPosition: 'top'      
-      });
+      this.snackBar.open('Produto adicionado com sucesso', 'Ok',
+        //!Como configuramos as propriedades em uma constate global no `app.config.ts` nos nao precisamos mais passar nada aqui
+      //    {
+      //   duration: 3000,
+      //   horizontalPosition: 'right',
+      //   verticalPosition: 'top'      
+      // }
+    );
       this.router.navigateByUrl('/').catch(console.log)
       //se der um erro vai aparecer no console
     })    
