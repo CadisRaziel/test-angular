@@ -31,8 +31,12 @@ export class ListComponent {
     });
   }
 
-  onEdit() {
-    debugger
-    this.router.navigateByUrl('/edit-product')
+  onEdit(product: ProductsModel) {
+    //debugger
+    //O navigate aaqui basicamente faz um join e manda pra rota
+    this.router.navigate([
+      '/edit-product',
+      product.id
+    ])
   }
 }
