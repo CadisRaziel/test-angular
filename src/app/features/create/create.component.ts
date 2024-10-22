@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ProductsService } from '../../shared/services/products.service';
 
 
 @Component({
@@ -13,12 +14,20 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './create.component.scss'
 })
 export class CreateComponent {
+  
+  constructor(private productsService: ProductsService) { }
+  //productsService = inject(ProductsService);
+
   form = new FormGroup({
     title: new FormControl<string>('', { nonNullable: true, validators: Validators.required })
   });
 
   onSubmit() {
     //para ser usago em congunto com o ngSubmit
-    this.form.controls.title.value; //-> Recuperar o value
+    this.productsService.post({
+     title: this.form.controls.title.value //-> Recuperar o value
+    }).subscribe(() => {
+      alert('Sucesso!');
+    })
   }
 }
