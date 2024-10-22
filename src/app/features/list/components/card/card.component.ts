@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, EventEmitter, input, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card'; //O import ou eu coloco na mao ou eu vou la no site do material angular procurar
 import { MatButtonModule } from '@angular/material/button'; //O import ou eu coloco na mao ou eu vou la no site do material angular procurar
 import { ProductsModel } from '../../../../shared/model/products.model';
@@ -25,9 +25,16 @@ export class CardComponent {
   // productItemComponent = input<ProductsModel>() -> Somente input ele fica de forma opcional os atributos
   productItemComponent = input.required<ProductsModel>() //-> estou informando que o input agora e obrigatorio, nao pode ser nulo
 
+
+  @Output() edit = new EventEmitter(); 
+
   //aqui vamos fazer um get para que ali no html nao fique assim -> productItemComponent().title
   //<mat-card-title>{{ productItemComponent().title }}</mat-card-title>
   //computed -> signal que permite apenas leitura
   //computed -> ele escuta outro signal que se ele mudar ele recomputa (atualiza ou roda a logica dentro dele e retorna atualizado)
   productTitle = computed(() => this.productItemComponent().title);
+
+  onEdit() {
+    this.edit.emit()
+  }
 }

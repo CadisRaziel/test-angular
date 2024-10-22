@@ -11,5 +11,9 @@ export const routes: Routes = [
         path: 'create-product',
         loadComponent: () => import('./features/create/create.component').then(m => m.CreateComponent) //-> Chamando o componente de forma `lazy` igual flutter 
         // component: CreateComponent,
+    },
+    {
+        path: 'edit-product',
+        loadComponent: () => import('./features/edit/edit.component').then(m => m.EditComponent) //-> Chamando o componente de forma `lazy` igual flutter 
     }
 ];
