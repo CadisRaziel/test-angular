@@ -1,12 +1,5 @@
-<!-- [formGroup]="form" -> para capturar o nosso form no create.components -->
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
-
-    <div class="form-content-container">
-        <mat-form-field>
-            <mat-label>Input</mat-label>
-            <input type="text" matInput formControlName="title" placeholder="Titulo">
-        </mat-form-field>
-
-        <button type="submit" mat-raised-button>Salvar</button>
-    </div>
-</form>
+<!-- [product] -> Vem la do formComponent -->
+<!-- product -> Vem aqui do ediComponent da rora recuperada-->
+<!-- (submit) -> vem la do formComponent -->
+<!-- onSubmit() -> Vem do ediComponent -->
+<app-form [product]="product" (done)="onSubmit($event)"/>
