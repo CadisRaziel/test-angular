@@ -31,6 +31,10 @@ export class ProductsService {
       // this.httpClient.get<any>('http://localhost:3000/products').subscribe((products) => {
         return this.http.put(`/api/products/${id}`, payload);
     }
+
+    delete(id: string) {
+      return this.http.delete(`/api/products/${id}`);
+    }
 }
 
 

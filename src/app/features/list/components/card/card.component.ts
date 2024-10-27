@@ -27,6 +27,7 @@ export class CardComponent {
 
 
   @Output() edit = new EventEmitter(); 
+  @Output() delete = new EventEmitter();
 
   //aqui vamos fazer um get para que ali no html nao fique assim -> productItemComponent().title
   //<mat-card-title>{{ productItemComponent().title }}</mat-card-title>
@@ -36,5 +37,9 @@ export class CardComponent {
 
   onEdit() {
     this.edit.emit()
+  }
+
+  onDelete() {
+    this.delete.emit()
   }
 }
