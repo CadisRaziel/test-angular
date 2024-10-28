@@ -1,20 +1,12 @@
 {
   "products": [
     {
-      "title": "tenis editado",
-      "id": "aad0"
+      "id": "de8f",
+      "title": "signal"
     },
     {
-      "id": "d9ec",
-      "title": "bola"
-    },
-    {
-      "title": "outro2",
-      "id": "3373"
-    },
-    {
-      "id": "c35f",
-      "title": "rede"
+      "id": "b799",
+      "title": "signal2"
     }
   ]
 }

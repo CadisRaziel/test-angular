@@ -3,8 +3,12 @@
 </div>
 
 <!-- track -> ele verifica se precisa renderizar novamente -->
-@for (item of products; track item.id) {
+
+<!-- Antes eu tinha uma variavel 'products' -->
+<!-- Agora eu tenho uma variavel products 'signal' e por isso eu atribui os '()' -->
+<!-- signals e liberado para ser usado como funcao -->
+@for (item of products(); track item.id) {
 <!-- Repare que por ser required o input ele ira dar um erro se eu nao passar isso `[productItemComponent]` -->
 <!-- e assim que eu componetizo um item e passo pra classe principal -->
-<app-card [productItemComponent]="item" (edit)="onEdit(item)" (delete)="onDelete(item)"/>
+<app-card [productItemComponent]="item" (edit)="onEdit(item)" (delete)="onDelete(item)" />
 }

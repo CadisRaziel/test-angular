@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ProductsModel } from '../../shared/model/products.model';
 import { CardComponent } from './components/card/card.component';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { filter } from 'rxjs';
 import { ProductsService } from '../../shared/services/products.service';
@@ -24,17 +24,15 @@ import { ConfirmationDialogService } from '../../shared/utils/confirmation-dialo
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-  products: ProductsModel[] = [];
+  //ActivatedRoute -> retorna o valor que foi manipulado la na rota com o resolve (retorna o que foi gerado la) 
+  //Adicionando signal para deixar a variavel reativa
+  //essa api de reacao do signal vai dar um efeito ao deltar um produto que e o seguinte(sem o signal ao deletar um produto ele meio que pisca a tela como se esperasse um loader), agora com o signal ele nao pisca mais
+  //isso acontece porque estamos atribuindo o valor ao signal e estamos colocando 'productsResolve' dentro dele, ou seja a instancia do signal nao mudou e o que aconteceu foi o valor interno do signal mudou mais isso nao afetou a instancia do signal
+  //ou seja a reacao aconteceu apenas com outro valor, em questao de instancia ficou a mesma 
+  products = signal<ProductsModel[]>(inject(ActivatedRoute).snapshot.data['productsResolve']);
 
   //productsService = inject(ProductsService);
   constructor(private productsService: ProductsService, private router: Router, private confirmationDialogService: ConfirmationDialogService) { }
-
-  ngOnInit() {
-    // this.httpClient.get<any>('http://localhost:3000/products').subscribe((products) => {
-    this.productsService.getAll().subscribe((products) => { //-> Utilizando a url com o nosso proxy     
-      this.products = products
-    });
-  }
 
   onEdit(product: ProductsModel) {
     //debugger
@@ -53,7 +51,8 @@ export class ListComponent {
         this.productsService.delete(product.id).subscribe(() => {
           //depois que deleta chama a lista denovo
           this.productsService.getAll().subscribe((products) => {
-            this.products = products
+            // this.products = products //-> Ao inves de passa o produto (reatribuindo valor), nos usaremos o 'set'
+            this.products.set(products) //-> Aqui iremos passar a nova lista de produtos
           });
         });
       });

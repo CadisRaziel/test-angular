@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ProductsService } from '../../shared/services/products.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FormComponent } from '../../shared/components/form/form.component';
 import { ProductsModel } from '../../shared/model/products.model';
+import { ProductsService } from '../../shared/services/products.service';
 
 
 

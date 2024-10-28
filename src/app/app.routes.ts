@@ -7,7 +7,14 @@ import { ProductsService } from './shared/services/products.service';
 export const routes: Routes = [
     {
         path: '', //A rota vazia significa o '/'
-        component: ListComponent
+        component: ListComponent,
+        resolve: {
+            //productsResolve: -> um valor dinamico que a gente inventa, pois o resolve e um objeto chave e valor
+            productsResolve: () => {
+                const productService = inject(ProductsService);                
+                return productService.getAll();
+            }
+        }
     },
     {
         path: 'create-product',

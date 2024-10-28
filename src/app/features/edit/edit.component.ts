@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { ProductsService } from '../../shared/services/products.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsModel } from '../../shared/model/products.model';
 import { FormComponent } from '../../shared/components/form/form.component';
+import { ProductsService } from '../../shared/services/products.service';
 
 @Component({
   selector: 'app-edit',
