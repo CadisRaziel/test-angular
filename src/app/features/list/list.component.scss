@@ -4,6 +4,14 @@
     padding: 16px 0;
 }
 
+.item-container {
+    margin-bottom: 16px;
+    display: block;
+}
+
 //justify-content -> horizontal
 //padding: 16px; -> por em todos os lados
 //padding: 16px 0; -> por na 1 (16)horizontal e na (0)vertical
+
+
+//A div ja tem um display por padrao, ja os components do angular nao tem

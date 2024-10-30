@@ -14,18 +14,21 @@
 <!-- hover -> quando um elemento receber o evento de hover -->
 <!-- timer -> conseguimos por um delay para ser carregado -->
 <!-- viewport e interaction -> sem explicacao (e mais avancado) -->
+
 @defer (on immediate) {
-<!-- Repare que por ser required o input ele ira dar um erro se eu nao passar isso `[productItemComponent]` -->
-<!-- e assim que eu componetizo um item e passo pra classe principal -->
-<app-card [productItemComponent]="item" (edit)="onEdit(item)" (delete)="onDelete(item)" />
+<div class="item-container">
+    <!-- Repare que por ser required o input ele ira dar um erro se eu nao passar isso `[productItemComponent]` -->
+    <!-- e assim que eu componetizo um item e passo pra classe principal -->
+    <app-card [productItemComponent]="item" (edit)="onEdit(item)" (delete)="onDelete(item)" />
+</div>
 }
 }
 
 @empty {
-    @defer (on immediate) {
-        <!-- caso o for acima estiver vazio usaremos essa notacao empty -->
-        <app-no-items />
-    }
+@defer (on immediate) {
+<!-- caso o for acima estiver vazio usaremos essa notacao empty -->
+<app-no-items />
+}
 }
 
 
