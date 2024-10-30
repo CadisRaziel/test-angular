@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { FormComponent } from '../../shared/components/form/form.component';
 import { ProductsModel } from '../../shared/model/products.model';
 import { ProductsService } from '../../shared/services/products.service';
+import { BackButtonComponent } from '../../shared/components/back-button/back-button.component';
 
 
 
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [FormComponent],
+  imports: [FormComponent, BackButtonComponent],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
