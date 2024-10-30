@@ -1,12 +1,3 @@
 {
-  "products": [
-    {
-      "id": "de8f",
-      "title": "signal"
-    },
-    {
-      "id": "338c",
-      "title": "signal2"
-    }
-  ]
+  "products": []
 }

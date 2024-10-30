@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { filter } from 'rxjs';
 import { ProductsService } from '../../shared/services/products.service';
 import { ConfirmationDialogService } from '../../shared/utils/confirmation-dialog.service';
+import { NoItemsComponent } from './components/no-items/no-items.component';
 
 
 
@@ -18,7 +19,8 @@ import { ConfirmationDialogService } from '../../shared/utils/confirmation-dialo
     //Veja como podemos componetizar assim como o flutter
     CardComponent,
     RouterLink,
-    MatButtonModule
+    MatButtonModule,
+    NoItemsComponent,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
@@ -29,7 +31,9 @@ export class ListComponent {
   //essa api de reacao do signal vai dar um efeito ao deltar um produto que e o seguinte(sem o signal ao deletar um produto ele meio que pisca a tela como se esperasse um loader), agora com o signal ele nao pisca mais
   //isso acontece porque estamos atribuindo o valor ao signal e estamos colocando 'productsResolve' dentro dele, ou seja a instancia do signal nao mudou e o que aconteceu foi o valor interno do signal mudou mais isso nao afetou a instancia do signal
   //ou seja a reacao aconteceu apenas com outro valor, em questao de instancia ficou a mesma 
-  products = signal<ProductsModel[]>(inject(ActivatedRoute).snapshot.data['productsResolve']);
+   products = signal<ProductsModel[]>(inject(ActivatedRoute).snapshot.data['productsResolve']);
+  
+  //products = signal<ProductsModel[]>([]); //-> Para simular vazio comente a linha acima e deixe so um array vazio
 
   //productsService = inject(ProductsService);
   constructor(private productsService: ProductsService, private router: Router, private confirmationDialogService: ConfirmationDialogService) { }

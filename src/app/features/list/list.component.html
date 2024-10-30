@@ -8,7 +8,35 @@
 <!-- Agora eu tenho uma variavel products 'signal' e por isso eu atribui os '()' -->
 <!-- signals e liberado para ser usado como funcao -->
 @for (item of products(); track item.id) {
+
+<!-- @defer -> Realizando carregamento de items somente quando forem necessarios -->
+<!-- immediate -> carregamento imediato -->
+<!-- hover -> quando um elemento receber o evento de hover -->
+<!-- timer -> conseguimos por um delay para ser carregado -->
+<!-- viewport e interaction -> sem explicacao (e mais avancado) -->
+@defer (on immediate) {
 <!-- Repare que por ser required o input ele ira dar um erro se eu nao passar isso `[productItemComponent]` -->
 <!-- e assim que eu componetizo um item e passo pra classe principal -->
 <app-card [productItemComponent]="item" (edit)="onEdit(item)" (delete)="onDelete(item)" />
 }
+}
+
+@empty {
+    @defer (on immediate) {
+        <!-- caso o for acima estiver vazio usaremos essa notacao empty -->
+        <app-no-items />
+    }
+}
+
+
+<!-- o @empty so foi introduzido na versao de 2024 do angular, entao antigamente era feito como abaixo -->
+<!-- Verificação da lista products para renderização condicional -->
+<!-- <ng-container *ngIf="products().length > 0; else noItems"> -->
+<!-- <ng-container *ngFor="let item of products(); trackBy: trackById"> -->
+<!-- <app-card [productItemComponent]="item" (edit)="onEdit(item)" (delete)="onDelete(item)"></app-card> -->
+<!-- </ng-container> -->
+<!-- </ng-container> -->
+
+<!-- <ng-template #noItems> -->
+<!-- <app-no-items></app-no-items> -->
+<!-- </ng-template> -->
